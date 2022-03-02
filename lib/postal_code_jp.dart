@@ -6,9 +6,9 @@ import 'dart:io';
 import 'package:yaml/yaml.dart';
 
 class PostalCodeJp {
-  static final latestPostalCodePath = 'data/latest';
+  static final latestPostalCodePath = 'assets/data/lates';
   static final prefectureCode =
-      loadYaml(File('data/prefecture_code.yml').readAsStringSync());
+      loadYaml(File('assets/data/prefecture_code.yml').readAsStringSync());
   static final postalCodeRegExp = RegExp('\d{7}');
 
   static Future<List<Map<String, dynamic>>> locate(postalCode, {opt}) async {
