@@ -9,7 +9,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:csv/csv.dart';
 
 class PostalCodeJp {
-  static final latestPostalCodePath = 'data/latest/';
+  static final latestPostalCodePath = 'data/latest';
   static final prefectureCode =
       loadYaml(File('data/prefecture_code.yml').readAsStringSync());
   static final postalCodeRegExp = RegExp('\d{7}');
@@ -20,7 +20,7 @@ class PostalCodeJp {
     }
 
     final file =
-        File("$latestPostalCodePath${postalCode.substring(0, 3)}.txt");
+        File("$latestPostalCodePath/${postalCode.substring(0, 3)}.csv");
 
     if (!file.existsSync()) {
       print('FILE_PATH_CSV_1_NOT_EXIST ${file.path}');
