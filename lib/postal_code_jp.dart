@@ -6,7 +6,6 @@ import 'dart:io';
 import 'package:yaml/yaml.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-import 'package:csv/csv.dart';
 
 class PostalCodeJp {
   static final latestPostalCodePath = 'data/latest';
@@ -21,7 +20,7 @@ class PostalCodeJp {
 
     final file =
         File("$latestPostalCodePath/${postalCode.substring(0, 3)}.csv");
-
+    loadCSV("$latestPostalCodePath/${postalCode.substring(0, 3)}.csv");
     if (!file.existsSync()) {
       print('FILE_PATH_CSV_1_NOT_EXIST ${file.path}');
 
@@ -67,10 +66,14 @@ class PostalCodeJp {
     }
     return address;
   }
-  void loadCSV(String path) async {
-    final _rawData = await rootBundle.loadString(path);
-    List<List<dynamic>> _listData = CsvToListConverter().convert(_rawData);
-    print('lst CSV $_listData');
+  static Future<String> loadAsset(String path) async {
+    return await rootBundle.loadString(path);
+  }
+
+  static void loadCSV(String path) {
+    loadAsset(path).then((dynamic output) {
+      print('loadCSV $output');
+    });
   }
 
 }
