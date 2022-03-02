@@ -20,7 +20,7 @@ class PostalCodeJp {
     }
 
     final file =
-        File("$latestPostalCodePath${postalCode.substring(0, 3)}.csv");
+        File("$latestPostalCodePath${postalCode.substring(0, 3)}.txt");
 
     if (!file.existsSync()) {
       print('FILE_PATH_CSV_1_NOT_EXIST ${file.path}');
