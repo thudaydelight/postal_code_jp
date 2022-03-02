@@ -4,9 +4,12 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:yaml/yaml.dart';
+import 'package:flutter/services.dart' show rootBundle;
+
+import 'package:csv/csv.dart';
 
 class PostalCodeJp {
-  static final latestPostalCodePath = 'data/lates';
+  static final latestPostalCodePath = 'data/lates/';
   static final prefectureCode =
       loadYaml(File('data/prefecture_code.yml').readAsStringSync());
   static final postalCodeRegExp = RegExp('\d{7}');
@@ -17,18 +20,17 @@ class PostalCodeJp {
     }
 
     final file =
-        File("$latestPostalCodePath/${postalCode.substring(0, 3)}.csv");
-    final file2 =
-    File("${postalCode.substring(0, 3)}.csv");
-    if (!file2.existsSync()) {
-      print('FILE_PATH_CSV_2_NOT_EXIST ${file2.path}');
-    }
+        File("$latestPostalCodePath${postalCode.substring(0, 3)}.csv");
+
+    final _rawData = await rootBundle.loadString("$latestPostalCodePath${postalCode.substring(0, 3)}.csv");
+    List<List<dynamic>> _listData = CsvToListConverter().convert(_rawData);
+
+    print('lst CSV $_listData');
     if (!file.existsSync()) {
       print('FILE_PATH_CSV_1_NOT_EXIST ${file.path}');
 
       return [];
     }
-
 
     final lines =
         file.openRead().transform(utf8.decoder).transform(LineSplitter());
@@ -69,6 +71,10 @@ class PostalCodeJp {
     }
     return address;
   }
-
+  void loadCSV(String path) async {
+    final _rawData = await rootBundle.loadString(path);
+    List<List<dynamic>> _listData = CsvToListConverter().convert(_rawData);
+    print('lst CSV $_listData');
+  }
 
 }
