@@ -21,7 +21,7 @@ class PostalCodeJp {
 
     final file =
         File("$latestPostalCodePath${postalCode.substring(0, 3)}.csv");
-
+    print('FILE_PATH_CSV ${file.path}');
     final _rawData = await rootBundle.loadString("$latestPostalCodePath${postalCode.substring(0, 3)}.csv");
     List<List<dynamic>> _listData = CsvToListConverter().convert(_rawData);
 
