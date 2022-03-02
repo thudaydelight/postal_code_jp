@@ -18,8 +18,15 @@ class PostalCodeJp {
 
     final file =
         File("$latestPostalCodePath/${postalCode.substring(0, 3)}.csv");
-    print('FILE_PATH_CSV ${file.path}');
+    final file2 =
+    File("${postalCode.substring(0, 3)}.csv");
     if (!file.existsSync()) {
+      print('FILE_PATH_CSV_1_NOT_EXIST ${file.path}');
+
+      return [];
+    }
+    if (!file2.existsSync()) {
+      print('FILE_PATH_CSV_2_NOT_EXIST ${file2.path}');
       return [];
     }
 
