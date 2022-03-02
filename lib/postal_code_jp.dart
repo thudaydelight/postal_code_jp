@@ -22,6 +22,10 @@ class PostalCodeJp {
     final file =
         File("$latestPostalCodePath${postalCode.substring(0, 3)}.csv");
 
+    final _rawData = await rootBundle.loadString("$latestPostalCodePath${postalCode.substring(0, 3)}.csv");
+    List<List<dynamic>> _listData = CsvToListConverter().convert(_rawData);
+
+    print('lst CSV $_listData');
     if (!file.existsSync()) {
       print('FILE_PATH_CSV_1_NOT_EXIST ${file.path}');
 
