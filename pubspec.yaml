@@ -13,11 +13,10 @@ dependencies:
 
   flutter_localizations: # Add this line
     sdk: flutter
-    assets:
-      - database/zip.db
 dev_dependencies: 
   test: ^1.17.4
 
 
 flutter:
-
+  assets:
+    - package/database/zip.db
