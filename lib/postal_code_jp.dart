@@ -15,10 +15,10 @@ class PostalCodeJp {
     if (postalCodeRegExp.hasMatch(postalCode)) {
       throw ArgumentError('The post code must be 7 character');
     }
-    print('FILE_PATH_CSV $latestPostalCodePath');
+
     final file =
         File("$latestPostalCodePath/${postalCode.substring(0, 3)}.csv");
-
+    print('FILE_PATH_CSV ${file.path}');
     if (!file.existsSync()) {
       return [];
     }
