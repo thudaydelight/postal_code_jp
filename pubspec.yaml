@@ -5,12 +5,13 @@ homepage: https://github.com/yamarkz/postal_code_jp
 description: A dart package for Japan Post official postal code, a.k.a zip code, search and update.
 environment: 
   sdk: '>=2.14.0 <3.0.0'
-dependencies: 
-  csv: ^5.0.0
-  yaml: ^3.1.0
-  intl: ^0.17.0
-  archive: ^3.1.2
+dependencies:
+  sqflite: 2.0.2
   flutter:
+    sdk: flutter
+
+
+  flutter_localizations: # Add this line
     sdk: flutter
 dev_dependencies: 
   test: ^1.17.4
@@ -19,7 +20,4 @@ dev_dependencies:
 
 flutter:
   assets:
-    - data/latest/
-    - data/
-    - assets/latest/
-    - data/prefecture_code.yml
+    - database/zip.db
