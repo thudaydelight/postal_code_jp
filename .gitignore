@@ -30,10 +30,10 @@
 build/
 pubspec.lock
 
-assets/data/company.zip
-assets/data/company.csv
-assets/data/general.zip
-assets/data/general.csv
+data/company.zip
+data/company.csv
+data/general.zip
+data/general.csv
 
 # Android related
 **/android/**/gradle-wrapper.jar

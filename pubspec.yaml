@@ -15,6 +15,6 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/data/latest/
-    - assets/data/
-    - assets/data/prefecture_code.yml
+    - data/latest/
+    - data/
+    - data/prefecture_code.yml

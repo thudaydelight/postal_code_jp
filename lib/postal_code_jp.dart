@@ -2,6 +2,7 @@ library postal_code_jp;
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:yaml/yaml.dart';
 
@@ -68,5 +69,15 @@ class PostalCodeJp {
           .firstWhere((k) => prefectureCode[k] == addressParam[1]);
     }
     return address;
+  }
+
+  Future<ByteData> loadFile(context) async {
+    AssetBundle bundle = DefaultAssetBundle.of(context).bundle;
+    try {
+      return await bundle.load("path/to.file");
+    } catch (e) {
+      print("Failed to load file because of $e");
+      return null;
+    }
   }
 }
