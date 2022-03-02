@@ -3,7 +3,7 @@ author: Kazuki Yamaguchi <y.kazuki0614n@gmail.com>
 version: 1.2.0
 homepage: https://github.com/yamarkz/postal_code_jp
 description: A dart package for Japan Post official postal code, a.k.a zip code, search and update.
-environment: 
+environment:
   sdk: '>=2.14.0 <3.0.0'
 dependencies:
   sqflite: 2.0.2
@@ -15,7 +15,6 @@ dependencies:
     sdk: flutter
 dev_dependencies: 
   test: ^1.17.4
-
 
 
 flutter:
