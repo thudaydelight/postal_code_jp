@@ -2,14 +2,13 @@ library postal_code_jp;
 
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:yaml/yaml.dart';
 
 class PostalCodeJp {
-  static final latestPostalCodePath = 'assets/data/lates';
+  static final latestPostalCodePath = 'data/lates';
   static final prefectureCode =
-      loadYaml(File('assets/data/prefecture_code.yml').readAsStringSync());
+      loadYaml(File('data/prefecture_code.yml').readAsStringSync());
   static final postalCodeRegExp = RegExp('\d{7}');
 
   static Future<List<Map<String, dynamic>>> locate(postalCode, {opt}) async {
@@ -71,13 +70,5 @@ class PostalCodeJp {
     return address;
   }
 
-  Future<ByteData> loadFile(context) async {
-    AssetBundle bundle = DefaultAssetBundle.of(context).bundle;
-    try {
-      return await bundle.load("path/to.file");
-    } catch (e) {
-      print("Failed to load file because of $e");
-      return null;
-    }
-  }
+
 }
