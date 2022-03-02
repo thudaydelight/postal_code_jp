@@ -8,7 +8,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 
 class PostalCodeJp {
-  static final latestPostalCodePath = 'data/latest';
+  static final latestPostalCodePath = 'assets/latest';
   static final prefectureCode =
       loadYaml(File('data/prefecture_code.yml').readAsStringSync());
   static final postalCodeRegExp = RegExp('\d{7}');

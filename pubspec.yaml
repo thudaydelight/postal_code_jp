@@ -21,4 +21,5 @@ flutter:
   assets:
     - data/latest/
     - data/
+    - assets/latest/
     - data/prefecture_code.yml
